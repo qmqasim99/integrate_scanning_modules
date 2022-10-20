@@ -5,3 +5,4 @@ argparse
 dnspython
 requests
 BeautifulSoup4
+redis

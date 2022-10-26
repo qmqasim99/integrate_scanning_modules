@@ -5,8 +5,8 @@ from app.worker.modules.Sublist3r import sublist3r
 # import sublist3r 
 
 def run_sublister(url:str):
-  subdomains = sublist3r.main(url, 40, url, ports= None, silent=False, verbose= True, enable_bruteforce= False, engines=None)
-  return subdomains
+    subdomains = sublist3r.main(url, 40, url, ports= None, silent=False, verbose= True, enable_bruteforce= False, engines="google,bing,PassiveDNS")
+    return subdomains
 
 
 def sublister_wrapper(url: str):

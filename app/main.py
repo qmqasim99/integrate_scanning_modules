@@ -15,24 +15,12 @@ async def root():
 
 @app.get("/scan/")
 async def get_scan(url: str):
-    rd.set('hello', 'world') # True
 
-    value = rd.get('hello')
-    print(value) # b'world'
-
-    rd.delete('hello') # True
-    print(rd.get('hello')) # None
-
-    print(rd.exists('hello')) # None
-    # if(rd.exists(url)):
     if(rd.exists(url)):
         print('key exists')
         return json.loads(rd.get(url))
-
-        # return rd.get(url)
     else:
         # sublister_result = sublister_wrapper(url)
-        # print(sublister_result)
         amass_result = amass_wrapper(url)
         result = {'scan_result': {'sublister': 'sublister_result', 'amass': amass_result}}
 

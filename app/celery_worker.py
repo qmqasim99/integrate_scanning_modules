@@ -14,8 +14,6 @@ rd = redis.from_url('redis://redis:6379', decode_responses=True)
 
 @celery.task(name="create_task")
 def create_task(url: str):
-    # time.sleep(int(task_type) * 10)
-    # return True
     if(rd.exists(url)):
         print('key exists')
         return json.loads(rd.get(url))
